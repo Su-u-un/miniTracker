@@ -7,20 +7,21 @@ export default [
         input:"./src/core/index.ts",
         output:[
             {
-                file:path.resolve(__distname,'./dis/index.esm.js'),
+                file:path.resolve(__dirname,'./dist/index.esm.js'),
                 format:'es'
             },
             {
-                file:path.resolve(__distname,'./dis/index.cjs.js'),
+                file:path.resolve(__dirname,'./dist/index.cjs.js'),
                 format:'cjs'
             },
             {
-                file:path.resolve(__distname,'./dis/index.esm.js'),
+                file:path.resolve(__dirname,'./dist/index.umd.js'),
                 format:'umd',
-                name:'tracker'
+                //全局文件使用的名字
+                name:'Tracker'
             }
         ],
-        plugin:[
+        plugins:[
             ts()
         ]
     },
@@ -29,10 +30,10 @@ export default [
         
         input:"./src/core/index.ts",
         output:{
-            file:path.resolve(__distname,'./dist/index.d.ts'),
+            file:path.resolve(__dirname,'./dist/index.d.ts'),
             format:'es'
         },
-        plugin:[
+        plugins:[
             dts()
         ]
     }
